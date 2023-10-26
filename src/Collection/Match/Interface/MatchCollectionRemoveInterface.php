@@ -6,7 +6,7 @@ namespace DanioRex\ScaloSportRadar\Collection\Match\Interface;
 
 use DanioRex\ScaloSportRadar\Model\Match\Interface\MatchModelInterface;
 
-interface MatchCollectionFindByKeyInterface
+interface MatchCollectionRemoveInterface
 {
-    public function findByKey(string $key): ?MatchModelInterface;
+    public function remove(MatchModelInterface $match): bool;
 }

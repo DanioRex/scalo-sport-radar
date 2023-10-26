@@ -6,8 +6,8 @@ namespace DanioRex\ScaloSportRadar\Collection\Match\Interface;
 
 interface MatchCollectionInterface extends
     MatchCollectionAddInterface,
-    MatchCollectionFindByKeyInterface,
-    MatchCollectionRemoveByKeyInterface,
+    MatchCollectionFindInterface,
+    MatchCollectionRemoveInterface,
     MatchCollectionSortByTotalScoreInterface,
     \Iterator
 {
