@@ -75,8 +75,15 @@ final class MatchCollection implements MatchCollectionInterface
     public function sortByTotalScore(): self
     {
         usort($this->matches, function (MatchModelInterface $a, MatchModelInterface $b) {
-            return ($a->getAwayTeamScore() + $a->getHomeTeamScore()) -
-                ($b->getAwayTeamScore() + $b->getHomeTeamScore());
+            $firstTotalScore = $a->getAwayTeamScore() + $a->getHomeTeamScore();
+            $secondTotalScore = $b->getAwayTeamScore() + $b->getHomeTeamScore();
+            $scoreDiff = $firstTotalScore - $secondTotalScore;
+
+            if ($scoreDiff === 0) {
+                return $b->getCreatedAt() <=> $a->getCreatedAt();
+            }
+
+            return $scoreDiff;
         });
 
         return $this;
